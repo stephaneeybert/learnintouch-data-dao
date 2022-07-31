@@ -1,0 +1,96 @@
+For all in all-custom-jpa-repositories-to-have-their-jpql-replaced-by-querydsl-custom-methods
+move them in src/main/java/com/thalasoft/learnintouch/data/jpa/repository and have QueryDSL
+Instead of concatenating strings, use QueryDSL in the custom repository
+
+On hsqldb, the LONGTEXTs seems not to be allowed
+type not found or user lacks privilege: LONGTEXT
+In MailHistory for example
+@Column(columnDefinition = "LONGTEXT")
+    private String body;
+
+The syntax of my LEFT JOIN in JPA may be incorrect
+Integration tests should make sure of their validity
+
+When testing manually...
+INSERT INTO `admin` VALUES (623,0,'Stephane','Eybert','joethebouncer','e41de4c55873f9c000f4cdaac6efd3aa','7bc7bf5f94fef7c7106afe5c3a40a2',1,0,'','','','','joethebouncer@thalasoft.com','',NULL);
+curl --user joethebouncer:mignet http://localhost:8080/learnintouch-rest/admin/greeting
+
+How to have pagination on the restful request /admin/search/{searchTerm}
+in AdminControllerTest
+
+Try using the profiles
+http://blog.springsource.org/2011/06/21/spring-3-1-m2-testing-with-configuration-classes-and-profiles/
+<beans profile="dev">
+    <jdbc:embedded-database id="dataSource">
+        <jdbc:script location="classpath:com/bank/config/sql/schema.sql"/>
+        <jdbc:script location="classpath:com/bank/config/sql/test-data.sql"/>
+    </jdbc:embedded-database>
+</beans>
+Or
+@Configuration
+@Profile("dev")
+public class StandaloneDataConfig {
+ 
+    @Bean
+    public DataSource dataSource() {
+        return new EmbeddedDatabaseBuilder()
+            .setType(EmbeddedDatabaseType.HSQL)
+            .addScript("classpath:com/bank/config/sql/schema.sql")
+            .addScript("classpath:com/bank/config/sql/test-data.sql")
+            .build();
+    }
+}
+@Configuration
+@Profile("production")
+public class JndiDataConfig {
+ 
+    @Bean
+    public DataSource dataSource() throws Exception {
+        Context ctx = new InitialContext();
+        return (DataSource) ctx.lookup("java:comp/env/jdbc/datasource");
+    }
+}
+And
+@ActiveProfiles("dev")
+public class TransferServiceTest {
+Setup a default profile in web.xml
+<!- If no active profile is set via -Dspring.profiles.active or 
+some other mechanism then this will be used. -->
+<context-param>
+        <param-name>spring.profiles.default</param-name>
+        <param-value>dev</param-value>
+</context-param>
+
+orphanRemoval=true
+@OrderColumn(name=”POSITION”)
+@Enumerated(EnumType.STRING)
+String preferenceValue
+
+The jpa exceptions
+javax.persistence.EntityExistsException
+javax.persistence.EntityNotFoundException
+javax.persistence.LockTimeoutException
+javax.persistence.NonUniqueResultException
+javax.persistence.NoResultException
+javax.persistence.OptimisticLockException
+javax.persistence.PessimisticLockException
+javax.persistence.QueryTimeoutException
+javax.persistence.RollbackException
+javax.persistence.TransactionRequiredException
+
+Test all finders that have a Criterion firstnameBis 
+
+The testPaginationIgnoresChildren should be done on a finder that has a JOIN to children, and it is not the case for the AdminDaoTest
+
+Have a test case on the left join of each Dao method, making sure the parent objects are retrieved even if they have no corresponding children objects.
+
+Have a test case on the join (both inner and left) of each Dao method, making sure the parent objects are paginated even if they have corresponding children objects.
+Here is more explanation on the problem:
+SELECT order
+FROM Order as order
+JOIN order.items AS item
+WHERE order.supplier = 'A'
+AND item.status = 'active'
+The above query should return the orders for the supplier 'A' that have items with a status of 'active'. This query works fine with Hibernate if you run it on its own, and you will get back a List with the right number of orders. However, if you try to limit the number of results using a pagination with Hibernate, you won't get back the expected number of orders. This is because the limit is applied to the result set. As there is a join from order to item, the result set will contain more than one row for each order. So for one order with ten active items and a maximum number of results for the query to set to 10, only one order will be retrieved in the List that is returned from Hibernate.
+It is possible to change the query so as to use a subselect on the item table, but this can make the query less efficient than using a join. 
+The issue is described in detail at: http://devperspective.blogspot.com/2007/03/effective-pagination-using-hibernate.html

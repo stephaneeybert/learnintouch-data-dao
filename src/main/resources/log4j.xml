@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+
+	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="ALL" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="ALL" />
+		<param name="File" value="build.log" />
+		<param name="maxFileSize" value="100KB" />
+		<param name="maxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p  [%c{1}] %m %n" />
+		</layout>
+	</appender>
+
+	<appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender">
+		<param name="Threshold" value="ERROR" />
+		<param name='SMTPDebug' value='true' />
+		<param name="SMTPProtocol" value="smtps" />
+		<param name="SMTPHost" value="smtp.gmail.com" />
+		<param name='SMTPPort' value='465' />
+		<param name="SMTPUsername" value="learnintouch@gmail.com" />
+		<param name="SMTPPassword" value="xxxxxx" />
+		<param name="From" value="stephane@learnintouch.com" />
+		<param name="To" value="stephane@learnintouch.com" />
+		<param name="Subject" value="[LOG] Java - learnintouch" />
+		<param name="BufferSize" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG" />
+			<param name="LevelMax" value="FATAL" />
+		</filter>
+	</appender>
+
+	<logger name="org.springframework">
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<logger name="com.thalasoft">
+		<level value="DEBUG" />
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref='fileAppender' />
+	</logger>
+
+	<logger name="org.hibernate.type">
+		<level value="TRACE" />
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<logger name="org.hibernate.sql">
+		<level value="DEBUG" />
+		<appender-ref ref="consoleAppender" />
+	</logger>
+
+	<logger name='jdbc.sqlonly' additivity='false'>
+		<level value='TRACE' />
+		<appender-ref ref='consoleAppender' />
+		<appender-ref ref='fileAppender' />
+	</logger>
+
+	<!-- <logger name='jdbc.sqltiming' additivity='false'> -->
+	<!-- <level value='TRACE' /> -->
+	<!-- <appender-ref ref='consoleAppender' /> -->
+	<!-- </logger> -->
+	<!-- <logger name='jdbc.connection' additivity='false'> -->
+	<!-- <level value='TRACE' /> -->
+	<!-- <appender-ref ref='consoleAppender' /> -->
+	<!-- </logger> -->
+
+	<!-- <root> -->
+	<!-- <appender-ref ref="consoleAppender" /> -->
+	<!-- </root> -->
+
+</log4j:configuration>

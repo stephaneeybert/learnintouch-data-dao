@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.ElearningResult" table="elearning_result" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_elearning_result</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <many-to-one name="elearningSubscription" class="com.thalasoft.learnintouch.data.dao.domain.ElearningSubscription">
+            <column name="subscription_id" />
+        </many-to-one>
+        <many-to-one name="elearningExercise" class="com.thalasoft.learnintouch.data.dao.domain.ElearningExercise">
+            <column name="elearning_exercise_id" />
+        </many-to-one>
+        <property name="exerciseDatetime" type="dateTime">
+            <column name="exercise_datetime" />
+        </property>
+        <property name="exerciseElapsedTime" type="int">
+            <column name="exercise_elapsed_time" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="firstname" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" />
+        </property>
+        <property name="message" type="text">
+            <column name="message" length="65535" />
+        </property>
+        <property name="textComment" type="text">
+            <column name="text_comment" length="65535" />
+        </property>
+        <property name="hideComment" type="boolean">
+            <column name="hide_comment" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="nbReadingQuestions" type="int">
+            <column name="nb_reading_questions" />
+        </property>
+        <property name="nbCorrectReadingAnswers" type="int">
+            <column name="nb_correct_reading_answers" />
+        </property>
+        <property name="nbIncorrectReadingAnswers" type="int">
+            <column name="nb_incorrect_reading_answers" />
+        </property>
+        <property name="nbReadingPoints" type="int">
+            <column name="nb_reading_points" />
+        </property>
+        <property name="nbWritingQuestions" type="int">
+            <column name="nb_writing_questions" />
+        </property>
+        <property name="nbCorrectWritingAnswers" type="int">
+            <column name="nb_correct_writing_answers" />
+        </property>
+        <property name="nbIncorrectWritingAnswers" type="int">
+            <column name="nb_incorrect_writing_answers" />
+        </property>
+        <property name="nbWritingPoints" type="int">
+            <column name="nb_writing_points" />
+        </property>
+        <property name="nbListeningQuestions" type="int">
+            <column name="nb_listening_questions" />
+        </property>
+        <property name="nbCorrectListeningAnswers" type="int">
+            <column name="nb_correct_listening_answers" />
+        </property>
+        <property name="nbIncorrectListeningAnswers" type="int">
+            <column name="nb_incorrect_listening_answers" />
+        </property>
+        <property name="nbListeningPoints" type="int">
+            <column name="nb_listening_points" />
+        </property>
+        <property name="nbNotAnswered" type="int">
+            <column name="nb_not_answered" />
+        </property>
+        <property name="nbIncorrectAnswers" type="int">
+            <column name="nb_incorrect_answers" />
+        </property>
+    </class>
+</hibernate-mapping>

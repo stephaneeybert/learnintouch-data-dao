@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.TemplatePage" table="template_page" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_template_page</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="systemPage" type="string">
+            <column name="system_page" length="50" not-null="true" />
+        </property>
+        <many-to-one name="templateModel" class="com.thalasoft.learnintouch.data.dao.domain.TemplateModel">
+            <column name="template_model_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

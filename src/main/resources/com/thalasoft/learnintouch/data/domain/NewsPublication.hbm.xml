@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.NewsPublication" table="news_publication" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_news_publication</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="name" type="string">
+            <column name="name" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="nbColumns" type="int">
+            <column name="nb_columns" />
+        </property>
+        <property name="slideDown" type="boolean">
+            <column name="slide_down" not-null="true" />
+        </property>
+        <property name="align" type="string">
+            <column name="align" length="10" />
+        </property>
+        <property name="withArchive" type="boolean">
+            <column name="with_archive" not-null="true" />
+        </property>
+        <property name="withOthers" type="boolean">
+            <column name="with_others" not-null="true" />
+        </property>
+        <property name="withByHeading" type="boolean">
+            <column name="with_by_heading" not-null="true" />
+        </property>
+        <property name="hideHeading" type="boolean">
+            <column name="hide_heading" not-null="true" />
+        </property>
+        <property name="autoArchive" type="int">
+            <column name="auto_archive" />
+        </property>
+        <property name="autoDelete" type="int">
+            <column name="auto_delete" />
+        </property>
+        <property name="secured" type="boolean">
+            <column name="secured" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

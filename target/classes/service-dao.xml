@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="adminService"
+		class="com.thalasoft.learnintouch.data.service.dao.AdminServiceImpl">
+	</bean>
+
+	<bean id="contactService"
+		class="com.thalasoft.learnintouch.data.service.dao.ContactServiceImpl">
+	</bean>
+
+	<bean id="contactRefererService"
+		class="com.thalasoft.learnintouch.data.service.dao.ContactRefererServiceImpl">
+	</bean>
+
+	<bean id="contactStatusService"
+		class="com.thalasoft.learnintouch.data.service.dao.ContactStatusServiceImpl">
+	</bean>
+
+	<bean id="newsStoryService"
+		class="com.thalasoft.learnintouch.data.service.dao.NewsStoryServiceImpl">
+	</bean>
+
+	<bean id="newsPaperService"
+		class="com.thalasoft.learnintouch.data.service.dao.NewsPaperServiceImpl">
+	</bean>
+
+	<bean id="newsPublicationService"
+		class="com.thalasoft.learnintouch.data.service.dao.NewsPublicationServiceImpl">
+	</bean>
+
+	<bean id="userAccountService"
+		class="com.thalasoft.learnintouch.data.service.dao.UserAccountServiceImpl">
+	</bean>
+
+</beans>

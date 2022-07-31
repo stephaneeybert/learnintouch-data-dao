@@ -1,0 +1,32 @@
+Build against all the following databases
+mvn clean install -Pmysql-db
+mvn clean install -Pjpa -Pmysql-db
+mvn clean install -Phsqldb-db
+mvn clean install -Ph2-db
+mvn clean install -Poracle-db
+
+To skip the tests
+mvn clean install -Pmysql-db -DskipTests
+
+Run the executable jar
+cd target;
+java -jar learnintouch-data-1.0-SNAPSHOT.jar
+
+The project svn repository is at 
+http://thalasoft.svn.storehouseapp.com/repository/
+
+Add the project repository in Eclipse, in the perspective SVN Repositories.
+
+Add the integration/java and integration/resources to the Java Build Path in Eclipse.
+
+Create a db_integration database in MySQL.
+bin/mysqladmin -u root -p create db_integration
+
+Have a .m2/settings.xml file to avoid the issue of having the spring-data-source.xml file not being found on the classpath. See http://maven.40175.n5.nabble.com/A-classpath-issue-td3300543.html
+
+If having the following error at build time:
+ERROR JDBCExceptionReporter:78 - Communications link failure
+then this is because of some incorrect setup with localhost in the system.
+Using dataSource.url=jdbc:mysql://127.0.0.1:3306/db_integration
+instead of dataSource.url=jdbc:mysql://localhost:3306/db_integration
+should resolve the issue.

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.ElearningQuestion" table="elearning_question" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_elearning_question</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="question" type="text">
+            <column name="question" length="65535" />
+        </property>
+        <property name="explanation" type="text">
+            <column name="explanation" length="65535" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" />
+        </property>
+        <property name="audio" type="string">
+            <column name="audio" />
+        </property>
+        <property name="hint" type="text">
+            <column name="hint" length="65535" />
+        </property>
+        <property name="points" type="int">
+            <column name="points" />
+        </property>
+        <property name="listOrder" type="int">
+            <column name="list_order" not-null="true" />
+        </property>
+        <many-to-one name="elearningExercisePage" class="com.thalasoft.learnintouch.data.dao.domain.ElearningExercisePage">
+            <column name="elearning_exercise_page_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

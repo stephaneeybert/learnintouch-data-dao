@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.Container" table="container" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_container</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="content" type="text">
+            <column name="content" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

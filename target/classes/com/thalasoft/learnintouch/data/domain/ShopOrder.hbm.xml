@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.ShopOrder" table="shop_order" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_shop_order</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="firstname" type="string">
+            <column name="firstname" not-null="true" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" not-null="true" />
+        </property>
+        <property name="organisation" type="string">
+            <column name="organisation" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" not-null="true" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="20" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="mobile_phone" length="20" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="20" />
+        </property>
+        <property name="message" type="text">
+            <column name="message" length="65535" />
+        </property>
+        <property name="handlingFee" type="int">
+            <column name="handling_fee" />
+        </property>
+        <property name="discountCode" type="string">
+            <column name="discount_code" length="12" />
+        </property>
+        <property name="discountAmount" type="string">
+            <column name="discount_amount" length="10" />
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" length="3" not-null="true" />
+        </property>
+        <property name="invoiceNumber" type="string">
+            <column name="invoice_number" length="50" />
+        </property>
+        <property name="invoiceNote" type="string">
+            <column name="invoice_note" length="1024" />
+        </property>
+        <property name="invoiceLanguageCode" type="string">
+            <column name="invoice_language_code" length="2" />
+        </property>
+        <property name="orderDate" type="dateTime">
+            <column name="order_date" length="10" not-null="true" />
+        </property>
+        <property name="dueDate" type="dateTime">
+            <column name="due_date" length="10" not-null="true" />
+        </property>
+        <property name="clientIp" type="string">
+            <column name="client_ip" length="20" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" not-null="true" />
+        </property>
+        <property name="paymentType" type="string">
+            <column name="payment_type" length="10" not-null="true" />
+        </property>
+        <property name="paymentTransactionId" type="string">
+            <column name="payment_transaction_id" length="50" />
+        </property>
+        <many-to-one name="userAccount" class="com.thalasoft.learnintouch.data.dao.domain.UserAccount">
+            <column name="user_account_id" />
+        </many-to-one>
+        <many-to-one name="shippingAddress" class="com.thalasoft.learnintouch.data.dao.domain.Address">
+            <column name="shipping_address_id" />
+        </many-to-one>
+        <many-to-one name="invoiceAddress" class="com.thalasoft.learnintouch.data.dao.domain.Address" cascade="all">
+            <column name="invoice_address_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

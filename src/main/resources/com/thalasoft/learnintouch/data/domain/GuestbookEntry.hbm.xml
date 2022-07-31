@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.GuestbookEntry" table="guestbook_entry" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_guestbook_entry</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="body" type="text">
+            <column name="body" length="65535" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="firstname" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" />
+        </property>
+        <many-to-one name="userAccount" class="com.thalasoft.learnintouch.data.dao.domain.UserAccount">
+            <column name="user_account_id" />
+        </many-to-one>
+        <property name="publicationDatetime" type="dateTime">
+            <column name="publication_datetime" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

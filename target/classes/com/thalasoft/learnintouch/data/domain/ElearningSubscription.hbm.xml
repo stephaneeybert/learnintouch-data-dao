@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.ElearningSubscription" table="elearning_subscription" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_elearning_subscription</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <many-to-one name="elearningTeacher" class="com.thalasoft.learnintouch.data.dao.domain.ElearningTeacher">
+            <column name="teacher_id" />
+        </many-to-one>
+        <many-to-one name="elearningClass" class="com.thalasoft.learnintouch.data.dao.domain.ElearningClass">
+            <column name="class_id" />
+        </many-to-one>
+        <many-to-one name="userAccount" class="com.thalasoft.learnintouch.data.dao.domain.UserAccount">
+            <column name="user_account_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="elearningCourse" class="com.thalasoft.learnintouch.data.dao.domain.ElearningCourse">
+            <column name="course_id" />
+        </many-to-one>
+        <many-to-one name="elearningSession" class="com.thalasoft.learnintouch.data.dao.domain.ElearningSession">
+            <column name="session_id" />
+        </many-to-one>
+        <property name="subscriptionDate" type="dateTime">
+            <column name="subscription_date" length="10" />
+        </property>
+        <property name="subscriptionClose" type="dateTime">
+            <column name="subscription_close" length="10" />
+        </property>
+        <property name="watchLive" type="boolean">
+            <column name="watch_live" not-null="true" />
+        </property>
+        <many-to-one name="lastExercise" class="com.thalasoft.learnintouch.data.dao.domain.ElearningExercise">
+            <column name="last_exercise_id" />
+        </many-to-one>
+        <many-to-one name="lastExercisePage" class="com.thalasoft.learnintouch.data.dao.domain.ElearningExercisePage">
+            <column name="last_exercise_page_id" />
+        </many-to-one>
+        <property name="lastActive" type="dateTime">
+            <column name="last_active" length="10" />
+        </property>
+        <property name="whiteboard" type="text">
+            <column name="whiteboard" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

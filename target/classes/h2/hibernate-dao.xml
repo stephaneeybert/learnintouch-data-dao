@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<bean id="addressDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.AddressHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="adminDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.AdminHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="adminModuleDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.AdminModuleHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="adminOptionDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.AdminOptionHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="clientDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ClientHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="contactDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContactHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="contactStatusDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContactStatusHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="contactRefererDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContactRefererHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="containerDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContainerHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="contentImportDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContentImportHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="contentImportHistoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ContentImportHistoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="documentCategoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.DocumentCategoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="documentDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.DocumentHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="flashDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.FlashHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="formDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.FormHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="formItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.FormItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="formItemValueDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.FormItemValueHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="formValidDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.FormValidHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="guestbookEntryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.GuestbookEntryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="linkCategoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.LinkCategoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="linkDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.LinkHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailCategoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailCategoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailDao"
+		class="com.thalasoft.learnintouch.data.dao.h2.hibernate.MailCustomHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailAddressDao"
+		class="com.thalasoft.learnintouch.data.dao.h2.hibernate.MailAddressCustomHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailHistoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailHistoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailListDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailListHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailListAddressDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailListAddressHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailListUserDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailListUserHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="mailOutboxDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.MailOutboxHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navlinkDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavlinkHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navlinkItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavlinkItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navbarDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavbarHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navbarLanguageDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavbarLanguageHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navbarItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavbarItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navmenuDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavmenuHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navmenuLanguageDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavmenuLanguageHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="navmenuItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.NavmenuItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="photoDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PhotoHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="photoAlbumDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PhotoAlbumHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="photoAlbumFormatDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PhotoAlbumFormatHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="photoFormatDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PhotoFormatHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="preferenceDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PreferenceHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="profileDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ProfileHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="propertyDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.PropertyHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="shopCategoryDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ShopCategoryHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="shopItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ShopItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="shopOrderItemDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ShopOrderItemHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="shopItemImageDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ShopItemImageHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="shopOrderDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.ShopOrderHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="smsDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.SmsHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="statisticsPageDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.StatisticsPageHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="statisticsRefererDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.StatisticsRefererHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="statisticsVisitDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.StatisticsVisitHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="templateModelDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.TemplateModelHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="uniqueTokenDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.UniqueTokenHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="userAccountDao"
+		class="com.thalasoft.learnintouch.data.dao.h2.hibernate.UserAccountCustomHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="userFacebookDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.SocialUserHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="webpageDao"
+		class="com.thalasoft.learnintouch.data.dao.hibernate.WebpageHibernateDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+</beans>

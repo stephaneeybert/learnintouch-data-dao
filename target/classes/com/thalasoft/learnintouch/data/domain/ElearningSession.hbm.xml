@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.thalasoft.learnintouch.data.dao.domain.ElearningSession" table="elearning_session" dynamic-insert="true" dynamic-update="true">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="native"><param name="sequence">sq_id_elearning_session</param></generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="name" type="string">
+            <column name="name" not-null="true" unique="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="openingDate" type="dateTime">
+            <column name="opening_date" length="10" not-null="true" />
+        </property>
+        <property name="closingDate" type="dateTime">
+            <column name="closing_date" length="10" />
+        </property>
+        <property name="closed" type="boolean">
+            <column name="closed" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
